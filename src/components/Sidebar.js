@@ -1,20 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
+import "./index.css";
 
 const Sidebar = () => {
   return (
-    <div>
-      <h3>
-        <Link style={{ textDecoration: "none" }} to="/hive">
-          hDashboard
-        </Link>
-      </h3>
-      <Link className="mx-2" to="/">
-        Dashboard
-      </Link>
-      <Link className="mx-2" to="/hive">
-        Hive
-      </Link>
+    <div style={{marginLeft:"22%"}}>
+      <h3> Welcome to the Hive Dashboard</h3>
     </div>
   );
 };

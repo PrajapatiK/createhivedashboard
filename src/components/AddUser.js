@@ -1,8 +1,9 @@
 import React from "react";
+import "./index.css";
 
 const AddUser = () => {
   return (
-    <div className="container">
+    <div className="container show-data" style= {{transitionDelay: "0.1s"}}>
       <h3 style={{ color: "red" }}>Welcome to add new user</h3>
       <form autoComplete="off">
         <div className="mb-3">
