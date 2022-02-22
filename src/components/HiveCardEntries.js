@@ -16,7 +16,9 @@ const HiveCardEntries = () => {
   console.log(location);
 
   useEffect(() => {
-    const index = dataItems.findIndex((item) => item.id === location.state.id);
+    let index = -1
+    if (location.state)
+      index = dataItems.findIndex((item) => item.id === location.state.id);
     console.log(index);
     if (index !== -1) {
       const setManyItems = [...dataItems];
@@ -28,13 +30,13 @@ const HiveCardEntries = () => {
   }, [location]);
 
   return (
-    <div className="show-data" style={{ transitionDelay: "0.1s" }}>
-      <Link className="btn btn-outline-primary my-2 mx-2" to="/users/newhive">
+    <div className="show-data" style={{ transitionDelay: "0.1s", height: '100%' }}>
+      <Link className="btn btn-outline-primary my-2 mx-4" to="/users/newhive">
         Add Hive
       </Link>
-      <div>
+      <div style={{  }}>
         {dataItems.length === 0 ? (
-          <h4>No Entry for display</h4>
+          <h4 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>No Entry for display</h4>
         ) : (
           <div className="row" style={{ overFlow: "auto" }}>
             {dataItems.map((item) => (
