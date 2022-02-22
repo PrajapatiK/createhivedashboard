@@ -1,52 +1,60 @@
 import React from "react";
-import "./index.css";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
-const AddUser = () => {
+const useStyles = makeStyles((theme) => ({
+  newroot: {
+    "& .MuiTextField-root": {
+      margin: theme.spacing(1),
+      width: 500,
+    },
+  },
+}));
+
+export default function TextFieldSizes() {
+  const classes = useStyles();
+  
   return (
-    <div className="container show-data" style= {{transitionDelay: "0.1s"}}>
-      <h3 style={{ color: "red" }}>Welcome to add new user</h3>
-      <form autoComplete="off">
-        <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
-            <strong>Name</strong>
-          </label>
-          <input
-            required
-            type="text"
-            className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
+    <div className="containerclass" style={{ marginLeft: "22%" }}>
+      <form className={classes.newroot} noValidate autoComplete="off">
+        <h3 className="mx-3">Add HiveUser</h3>
+        <div>
+          <TextField
+            label="hive name"
+            id="outlined-size-normal"
+            placeholder="hive name"
+            variant="outlined"
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
-            <strong>Owner</strong>
-          </label>
-          <input
-            required
-            type="text"
-            className="form-control"
-            id="exampleInputPassword1"
+        <div>
+          <TextField
+            label="hive owner"
+            id="outlined-size-normal"
+            placeholder="hive owner"
+            variant="outlined"
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
-            <strong>Tagline</strong>
-          </label>
-          <input
-            required
-            type="text"
-            className="form-control"
-            id="exampleInputPassword1"
+        <div>
+          <TextField
+            label="number of emp"
+            id="outlined-size-normal"
+            placeholder="number of emp"
+            variant="outlined"
           />
         </div>
-
-        <button type="submit" className="btn btn-primary">
+        <div>
+          <TextField
+            label="tagline"
+            id="outlined-size-normal"
+            placeholder="tagline"
+            variant="outlined"
+          />
+        </div>
+        <Button className="mx-2 my-2" variant="contained" color="primary">
           Submit
-        </button>
+        </Button>
       </form>
     </div>
   );
-};
-
-export default AddUser;
+}

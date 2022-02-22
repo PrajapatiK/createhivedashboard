@@ -1,8 +1,7 @@
 .show-data {
   margin-left: var(--margin-left);
 }
-.containerclass{ 
-
+.containerclass {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,5 +10,27 @@
   max-width: 550px;
   padding: 16px;
   background-color: rgb(226, 240, 240);
-  
+}
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.deleteIcon {
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  background-color: white;
+  position: absolute;
+  right: 0;
+  top: -5px;
+}
+.editIcon {
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  background-color: white;
+  position: absolute;
+  right: 0;
+  top: 19px;
 }

@@ -2,6 +2,7 @@ import React from "react";
 import EditRoundedIcon from "@material-ui/icons/EditRounded";
 import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
 import { useNavigate } from "react-router-dom";
+import "./index.css";
 
 function HiveCard(props) {
   const navigate = useNavigate();
@@ -9,26 +10,13 @@ function HiveCard(props) {
     console.log("welcome to edit hive user");
     navigate(`/users/edithive/${id}`);
   };
-  const deleteHiveUser=(id)=>{
-    console.log('welcome to delete user');
-    props.deleteHive(id);    
-  }
+  const deleteHiveUser = (id) => {
+    console.log("welcome to delete user");
+    props.deleteHive(id);
+  };
   const item = props.item;
   return (
     <div className="card mx-2 my-2" style={{ width: "18rem" }}>
-      <button onClick={()=>deleteHiveUser(item.id)}
-        style={{
-          border: "none",
-          padding: "0px",
-          margin: "0px",
-          backgroundColor: "white",
-          position: "absolute",
-          right: "0",
-          top: "-4px",
-        }}
-      >
-        <DeleteRoundedIcon />
-      </button>
       <ul className="card-body">
         <li className="list-group-item">
           <strong>HiveName: </strong>
@@ -47,21 +35,18 @@ function HiveCard(props) {
           {item.tagline}
         </li>
       </ul>
-      <button
-        onClick= {()=>editHiveUser(item.id)}
-        to="/users/edithive"
-        style={{
-          border: "none",
-          padding: "0px",
-          margin: "0px",
-          backgroundColor: "white",
-          position: "absolute",
-          right: "0",
-          top: "19px",
-        }}
-      >
-        <EditRoundedIcon />
-      </button>
+      <footer>
+        <button
+          onClick={() => editHiveUser(item.id)}
+          to="/users/edithive"
+          className="editIcon"
+        >
+          <EditRoundedIcon />
+        </button>
+        <button onClick={() => deleteHiveUser(item.id)} className="deleteIcon">
+          <DeleteRoundedIcon />
+        </button>
+      </footer>
     </div>
   );
 }

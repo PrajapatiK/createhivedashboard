@@ -1,16 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { dummyDataItems } from "./Data";
 import { Link } from "react-router-dom";
 import "./index.css";
 import HiveCard from "./HiveCard";
+import { useLocation } from "react-router-dom";
 
-const Centre = () => {
+const HiveCardEntries = () => {
   const [dataItems, setDataItems] = useState(dummyDataItems);
 
   const deleteHive = (id) => {
     console.log("delete hive", id);
     setDataItems(dataItems.filter((e) => e.id !== id));
   };
+  const location = useLocation();
+  console.log(location);
+
+  useEffect(() => {
+    const index = dataItems.findIndex((item) => item.id === location.state.id);
+    console.log(index);
+    if (index !== -1) {
+      const setManyItems = [...dataItems];
+      let setOneItem = { ...setManyItems[index] };
+      setOneItem = location.state;
+      setManyItems[index] = setOneItem;
+      setDataItems(setManyItems);
+    }
+  }, [location]);
+
   return (
     <div className="show-data" style={{ transitionDelay: "0.1s" }}>
       <Link className="btn btn-outline-primary my-2 mx-2" to="/users/newhive">
@@ -33,4 +49,4 @@ const Centre = () => {
   );
 };
 
-export default Centre;
+export default HiveCardEntries;

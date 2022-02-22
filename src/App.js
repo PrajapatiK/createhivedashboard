@@ -1,11 +1,9 @@
-//import logo from "./logo.svg";
 import "./App.css";
-import Sidebar from "./components/Sidebar";
-import { Routes, Route } from "react-router-dom";
-import Centre from "./components/Centre";
+import WelcomePage from "./components/WelcomePage";
+import { Routes, Navigate, Route } from "react-router-dom";
+import HiveCardEntries from "./components/HiveCardEntries";
 import AddUser from "./components/AddUser";
 import Drawer from "./components/Drawer";
-//import TextFieldSizes from "/EditHiveUser";
 import PageNotFound from "./components/PageNotFound";
 import TextFieldSizes from "./EditHiveUser";
 
@@ -15,11 +13,16 @@ function App() {
       <div className="container">
         <Drawer />
         <Routes>
-          <Route path="*" exact={true} element={<PageNotFound />} />
-          <Route exact path="/" element={<Sidebar />} />
-          <Route exact path="/hive" element={<Centre />} />
+          <Route path="/404error" exact={true} element={<PageNotFound />} />
+          <Route path="*" element={<Navigate to="/404error" />} />
+          <Route exact path="/" element={<WelcomePage />} />
+          <Route exact path="/hive" element={<HiveCardEntries />} />
           <Route exact path="/users/newhive" element={<AddUser />} />
-          <Route exact path="/users/edithive/:id" element={<TextFieldSizes />} />
+          <Route
+            exact
+            path="/users/edithive/:id"
+            element={<TextFieldSizes />}
+          />
         </Routes>
       </div>
     </>
